@@ -45,7 +45,7 @@ duration2=$(( SECONDS - start_seconds ))
 echo TIMING docker_run_metplus in test_use_cases_data_assimilation
 echo "TIMING docker_run_metplus took $(($duration2 / 60)) minutes and $(($duration2 % 60)) seconds."
 
-duration_sum = (( $duration1 + $duration2 ))
+duration_sum = $(( duration1 + duration2 ))
 echo "Total TIMING test_use_cases_data_assimilation took $(($duration_sum / 60)) minutes and $(($duration_sum % 60)) seconds."
 
 # remove logs dir and move data to previous output base so next run will not prompt

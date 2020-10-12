@@ -74,7 +74,7 @@ duration4=$(( SECONDS - start_seconds ))
 echo TIMING docker_run_metplus 2test_use_cases_met_tool_wrapper $VOLUMES
 echo "TIMING docker docker_run_metplus 3 took $(($duration4 / 60)) minutes and $(($duration4 % 60)) seconds."
 
-duration_sum = (( $duration1 + $duration2 + $duration3 + $duration4 ))
+duration_sum = $(( duration1 + duration2 + duration3 + duration4 ))
 echo "Total TIMING test_ues_cases_met_tool_wrapper took $(($duration_sum / 60)) minutes and $(($duration_sum % 60)) seconds."
 echo 'Final return code=' $returncode 
 

@@ -51,7 +51,7 @@ mv ${TRAVIS_OUTPUT_BASE}/* ${TRAVIS_PREV_OUTPUT_BASE}/
 
 echo Tests completed.
 
-duration_sum = (( $duration1 + $duration2 ))
+duration_sum = $(( duration1 + duration2 ))
 echo "Total TIMING test_use_case_medium_range took $(($duration_sum / 60)) minutes and $(($duration_sum % 60)) seconds."
 
 # Dump the output directories from running METplus
