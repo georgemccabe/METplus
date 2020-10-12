@@ -68,7 +68,7 @@ echo "TIMING docker_run_metplus in model applications $(($duration2 / 60)) minut
 rm -rf ${TRAVIS_OUTPUT_BASE}/logs
 mv ${TRAVIS_OUTPUT_BASE}/* ${TRAVIS_PREV_OUTPUT_BASE}/
 
-$duration_sum = $(( duration1 + duration2 ))
+$duration_sum=$(( duration1 + duration2 ))
 echo "Total TIMING test_use_cases_model_applications $(($duration_sum / 60)) minutes and $(($duration_sum % 60)) seconds."
 
 echo Tests completed.

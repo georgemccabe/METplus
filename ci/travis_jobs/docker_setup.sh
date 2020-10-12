@@ -35,7 +35,7 @@ duration3=$(( SECONDS - start_seconds ))
 echo TIMING docker_push in docker_setup
 echo "TIMING docker push ${DOCKERHUB_TAG} took $(($duration3 / 60)) minutes and $(($duration3 % 60)) seconds."
 
-duration_sum = $(( duration1 + duration2 + duration3 ))
+duration_sum=$(( duration1 + duration2 + duration3 ))
 echo "Total TIMING docker_setup ${DOCKERHUB_TAG} took $(($duration_sum / 60)) minutes and $(($duration_sum % 60)) seconds."
 echo 
 
