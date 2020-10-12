@@ -9,7 +9,7 @@ start_seconds=$SECONDS
 docker pull ${DOCKERHUB_TAG} || true
 
 duration1=$(( SECONDS - start_seconds ))
-echo TIMING docker pull in docker_setup
+echo TIMING docker pull in docker_setup ${DOCKERHUB_TAG}
 echo "TIMING docker pull ${DOCKERHUB_TAG} took $(($duration1 / 60)) minutes and $(($duration1 % 60)) seconds."
 
 echo CURRENT_BRANCH = ${CURRENT_BRANCH}
@@ -21,7 +21,7 @@ start_seconds=$SECONDS
 docker build --pull --cache-from ${DOCKERHUB_TAG} -t ${DOCKERHUB_TAG} --build-arg SOURCE_BRANCH=${CURRENT_BRANCH} --build-arg MET_BRANCH=${DOCKERHUB_MET_TAGNAME} --build-arg DO_GIT_CLONE ${TRAVIS_BUILD_DIR}/ci/docker
 
 duration2=$(( SECONDS - start_seconds ))
-echo TIMING docker_build with --cache-from in docker_setup 
+echo TIMING docker_build with ${DOCKERHUB_TAG} --cache-from in docker_setup 
 echo "TIMING docker build with cache-from took $(($duration2 / 60)) minutes and $(($duration2 % 60)) seconds."
 echo
 

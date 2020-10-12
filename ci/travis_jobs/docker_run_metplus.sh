@@ -10,7 +10,7 @@ docker_run_seconds=$SECONDS
 docker pull ${DOCKERHUB_TAG}
 
 duration=$(( SECONDS - docker_run_seconds ))
-echo --TIMING docker_pull in docker_run_metplus $VOLUMES
+echo --TIMING docker_pull in docker_run_metplus ${DOCKERHUB_TAG}
 echo "--TIMING docker pull ${DOCKERHUB_TAG} took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
 
 echo CURRENT_BRANCH = ${CURRENT_BRANCH}
@@ -28,7 +28,7 @@ docker run --rm --user root:$UID $VOLUMES -v ${OWNER_BUILD_DIR}:${DOCKER_WORK_DI
 ret=$?
 
 duration=$(( SECONDS - docker_run_seconds ))
-echo --TIMING docker run in docker_run_metplus
+echo --TIMING docker run in docker_run_metplus $VOLUMES
 echo "--TIMING docker run took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
 
 # check return codes
