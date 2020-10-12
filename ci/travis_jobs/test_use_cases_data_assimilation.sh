@@ -28,9 +28,9 @@ start_seconds=$SECONDS
 
 VOLUMES=`${TRAVIS_BUILD_DIR}/ci/travis_jobs/get_data_volumes.py data_assimilation`
 
-duration=$(( SECONDS - start_seconds ))
+duration1=$(( SECONDS - start_seconds ))
 echo TIMING get_data_volumes in test_use_case_data_assimilation $VOLUMES
-echo "TIMING docker get_data_volumes took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
+echo "TIMING docker get_data_volumes took $(($duration1 / 60)) minutes and $(($duration1 % 60)) seconds."
 
 echo data_assimilation
 
@@ -41,9 +41,12 @@ start_seconds=$SECONDS
 ${TRAVIS_BUILD_DIR}/ci/travis_jobs/docker_run_metplus.sh "pip3 install netCDF4; ${DOCKER_WORK_DIR}/METplus/internal_tests/use_cases/run_test_use_cases.sh docker --config model_applications/data_assimilation/StatAnalysis_fcstHAFS_obsPrepBufr_JEDI_IODA_interface.conf,user_env_vars.MET_PYTHON_EXE=python3" $returncode "$VOLUMES"
 returncode=$?
 
-duration=$(( SECONDS - start_seconds ))
+duration2=$(( SECONDS - start_seconds ))
 echo TIMING docker_run_metplus in test_use_cases_data_assimilation
-echo "TIMING docker_run_metplus took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
+echo "TIMING docker_run_metplus took $(($duration2 / 60)) minutes and $(($duration2 % 60)) seconds."
+
+duration_sum = (( $duration1 + $duration2 ))
+echo "Total TIMING test_use_cases_data_assimilation took $(($duration_sum / 60)) minutes and $(($duration_sum % 60)) seconds."
 
 # remove logs dir and move data to previous output base so next run will not prompt
 rm -rf ${TRAVIS_OUTPUT_BASE}/logs

@@ -19,6 +19,7 @@ returncode=$?
 duration=$(( SECONDS - start_seconds ))
 echo TIMING docker_run_metplus in test_unit.sh $VOLUMES
 echo "TIMING docker_run_metplus took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
+echo "Total TIMING test.sh took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
 
 #ls -alR ${TRAVIS_OUTPUT_BASE}
 

@@ -36,9 +36,9 @@ start_seconds=$SECONDS
 echo ${TRAVIS_BUILD_DIR}/ci/travis_jobs/get_data_volumes.py $@
 VOLUMES=`${TRAVIS_BUILD_DIR}/ci/travis_jobs/get_data_volumes.py $@`
 
-duration=$(( SECONDS - start_seconds ))
+duration1=$(( SECONDS - start_seconds ))
 echo TIMING get_data_volumes in test_use_case_model_applications $VOLUMES
-echo "TIMING get data volumes in model applications $(($duration / 60)) minutes and $(($duration % 60)) seconds."
+echo "TIMING get data volumes in model applications $(($duration1 / 60)) minutes and $(($duration1 % 60)) seconds."
 
 
 # download GempakToCF.jar
@@ -60,13 +60,16 @@ start_seconds=$SECONDS
 ${TRAVIS_BUILD_DIR}/ci/travis_jobs/docker_run_metplus.sh "${DOCKER_WORK_DIR}/METplus/internal_tests/use_cases/run_test_use_cases.sh docker ${test_args}" $returncode "$VOLUMES"
 returncode=$?
 
-duration=$(( SECONDS - start_seconds ))
+duration2=$(( SECONDS - start_seconds ))
 echo TIMING docker_run_metplus in test_use_case_model_applications
-echo "TIMING docker_run_metplus in model applications $(($duration / 60)) minutes and $(($duration % 60)) seconds."
+echo "TIMING docker_run_metplus in model applications $(($duration2 / 60)) minutes and $(($duration2 % 60)) seconds."
 
 # remove logs dir and move data to previous output base so next run will not prompt
 rm -rf ${TRAVIS_OUTPUT_BASE}/logs
 mv ${TRAVIS_OUTPUT_BASE}/* ${TRAVIS_PREV_OUTPUT_BASE}/
+
+$duration_sum = (( $duration1 + $duration2 ))
+echo "Total TIMING test_use_cases_model_applications $(($duration_sum / 60)) minutes and $(($duration_sum % 60)) seconds."
 
 echo Tests completed.
 #echo DOCKER_IMAGES after model_applications $@
