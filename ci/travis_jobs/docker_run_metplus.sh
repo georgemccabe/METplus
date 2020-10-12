@@ -5,11 +5,11 @@
 
 VOLUMES=$3
 echo --Timing docker pull in docker_run_metplus...
-start_seconds=$SECONDS
+docker_run_seconds=$SECONDS
 
 docker pull ${DOCKERHUB_TAG}
 
-duration=$(( SECONDS - start_seconds ))
+duration=$(( SECONDS - docker_run_seconds ))
 echo --TIMING docker_pull in docker_run_metplus $VOLUMES
 echo "--TIMING docker pull ${DOCKERHUB_TAG} took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
 
@@ -21,13 +21,13 @@ docker images
 
 
 echo --Timing docker run in docker_run_metplus...
-start_seconds=$SECONDS
+docker_run_seconds=$SECONDS
 
 echo  In docker_run_metplus.sh, RUNNING: $1
 docker run --rm --user root:$UID $VOLUMES -v ${OWNER_BUILD_DIR}:${DOCKER_WORK_DIR} -v ${OWNER_BUILD_DIR}/output:${DOCKER_DATA_DIR}/output -v ${OWNER_BUILD_DIR}/input:${DOCKER_DATA_DIR}/input ${DOCKERHUB_TAG} /bin/bash -c "umask 002; $1"
 ret=$?
 
-duration=$(( SECONDS - start_seconds ))
+duration=$(( SECONDS - docker_run_seconds ))
 echo --TIMING docker run in docker_run_metplus
 echo "--TIMING docker run took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
 
