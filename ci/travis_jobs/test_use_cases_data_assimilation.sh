@@ -23,14 +23,14 @@ echo CURRENT_BRANCH = ${CURRENT_BRANCH}
 echo Run tests...
 returncode=0
 
-echo Timing Get Data Volumes in test_use_cases_data_assimilation...
+echo Timing get_data_volumes in test_use_cases_data_assimilation...
 start_seconds=$SECONDS
 
 VOLUMES=`${TRAVIS_BUILD_DIR}/ci/travis_jobs/get_data_volumes.py data_assimilation`
 
 duration1=$(( SECONDS - start_seconds ))
 echo TIMING get_data_volumes in test_use_case_data_assimilation $VOLUMES
-echo "TIMING docker get_data_volumes took $(($duration1 / 60)) minutes and $(($duration1 % 60)) seconds."
+echo "TIMING docker get_data_volumes took $(($duration1 / 60)):$(($duration1 % 60))"
 
 echo data_assimilation
 
@@ -43,10 +43,10 @@ returncode=$?
 
 duration2=$(( SECONDS - start_seconds ))
 echo TIMING docker_run_metplus in test_use_cases_data_assimilation
-echo "TIMING docker_run_metplus took $(($duration2 / 60)) minutes and $(($duration2 % 60)) seconds."
+echo "TIMING docker_run_metplus took $(($duration2 / 60)):$(($duration2 % 60))"
 
 duration_sum=$(( duration1 + duration2 ))
-echo "Total TIMING test_use_cases_data_assimilation took $(($duration_sum / 60)) minutes and $(($duration_sum % 60)) seconds."
+echo "Total TIMING test_use_cases_data_assimilation took $(($duration_sum / 60)):$(($duration_sum % 60))"
 
 # remove logs dir and move data to previous output base so next run will not prompt
 rm -rf ${TRAVIS_OUTPUT_BASE}/logs

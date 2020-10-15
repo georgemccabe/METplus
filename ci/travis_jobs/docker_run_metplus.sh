@@ -4,14 +4,14 @@
 # to move files that are created by docker
 
 VOLUMES=$3
-echo --Timing docker pull in docker_run_metplus...
+echo --Timing_docker pull in docker_run_metplus...
 docker_run_seconds=$SECONDS
 
 docker pull ${DOCKERHUB_TAG}
 
 duration=$(( SECONDS - docker_run_seconds ))
 echo --TIMING docker_pull in docker_run_metplus ${DOCKERHUB_TAG}
-echo "--TIMING docker pull ${DOCKERHUB_TAG} took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
+echo "--TIMING docker_pull ${DOCKERHUB_TAG} took $(($duration / 60)):$(($duration % 60))"
 
 echo CURRENT_BRANCH = ${CURRENT_BRANCH}
 
@@ -20,7 +20,7 @@ echo 'DOCKER IMAGES in docker_run_metplus'
 docker images
 
 
-echo --Timing docker run in docker_run_metplus...
+echo --Timing docker_run in docker_run_metplus...
 docker_run_seconds=$SECONDS
 
 echo  In docker_run_metplus.sh, RUNNING: $1
@@ -28,8 +28,8 @@ docker run --rm --user root:$UID $VOLUMES -v ${OWNER_BUILD_DIR}:${DOCKER_WORK_DI
 ret=$?
 
 duration=$(( SECONDS - docker_run_seconds ))
-echo --TIMING docker run in docker_run_metplus $VOLUMES
-echo "--TIMING docker run took $(($duration / 60)) minutes and $(($duration % 60)) seconds."
+echo --TIMING docker_run in docker_run_metplus $VOLUMES
+echo "--TIMING docker_run took $(($duration / 60)):$(($duration % 60))"
 
 # check return codes
 echo "In docker_run_metplus.sh previous return code: $2
