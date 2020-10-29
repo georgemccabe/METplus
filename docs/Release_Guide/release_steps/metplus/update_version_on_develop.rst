@@ -1,3 +1,8 @@
+.. raw:: html
+
+   <details>
+   <summary><a>Update Version on Develop Branch</a></summary>
+
 Update Version on Develop Branch
 --------------------------------
 
@@ -18,3 +23,7 @@ change:
 +-----------------+---------------------+
 |    X.Y          |   (X+1).0-beta1-dev |
 +-----------------+---------------------+
+
+.. raw:: html
+
+   </details>

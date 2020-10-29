@@ -1,3 +1,8 @@
+.. raw:: html
+
+   <details>
+   <summary><a>Checkout the Main Branch</a></summary>
+
 Checkout the Main Branch
 ------------------------
 
@@ -9,3 +14,7 @@ Example:
 .. parsed-literal::
 
     git checkout main_v3.1
+
+.. raw:: html
+
+   </details>

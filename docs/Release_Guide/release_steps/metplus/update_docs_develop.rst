@@ -1,3 +1,8 @@
+.. raw:: html
+
+   <details>
+   <summary><a>Update the Documentation on the Web</a></summary>
+
 Update the Documentation on the Web
 -----------------------------------
 
@@ -10,3 +15,7 @@ Update the Documentation on the Web
 - On the gh-pages branch, remove all contents of develop directory
 - Put all contents of docs/_build/html into the develop directory
 - Commit changes and push to GitHub
+
+.. raw:: html
+
+   </details>

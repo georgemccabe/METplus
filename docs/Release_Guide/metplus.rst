@@ -4,6 +4,11 @@ METplus Release
 
 .. |projectRepo| replace:: METplus
 
+.. raw:: html
+
+   <details>
+   <summary><a>Official release (e.g. vX.Y)</a></summary>
+
 Official release (e.g. vX.Y)
 ============================
 
@@ -20,6 +25,10 @@ Official release (e.g. vX.Y)
 .. include:: release_steps/metplus/create_release_extra.rst
 .. include:: release_steps/change_default_branch.rst
 .. include:: release_steps/metplus/update_version_on_develop.rst
+
+.. raw:: html
+
+   </details>
 
 Bugfix release (e.g. vX.Y.Z)
 ============================

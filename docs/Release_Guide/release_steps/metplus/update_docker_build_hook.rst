@@ -1,3 +1,8 @@
+.. raw:: html
+
+   <details>
+   <summary><a>Update Docker Build Hook File</a></summary>
+
 Update Docker Build Hook File
 -----------------------------
 
@@ -9,3 +14,7 @@ Note: This step will eventually be automated. These steps can be deprecated afte
   the MET_BRANCH value to the corresponding MET Docker image tag, i.e. for
   METplus 3.1 release, MET_BRANCH=9.1
 - If not a major/minor release, ensure that MET_BRANCH is set to develop.
+
+.. raw:: html
+
+   </details>

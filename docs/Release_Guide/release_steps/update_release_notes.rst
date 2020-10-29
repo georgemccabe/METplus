@@ -1,3 +1,8 @@
+.. raw:: html
+
+   <details>
+   <summary><a>Update Release Notes</a></summary>
+
 Update Release Notes
 --------------------
 
@@ -15,3 +20,7 @@ release. Open the following URL in a browser:
 
 - If you are creating a beta1 release, remove the previous version's release
   notes, i.e. for 3.0-beta1, remove all 2.Y notes and start the 3.0 section.
+
+.. raw:: html
+
+   </details>

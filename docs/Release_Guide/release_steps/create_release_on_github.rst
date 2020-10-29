@@ -1,3 +1,8 @@
+.. raw:: html
+
+   <details>
+   <summary><a>Create Release on GitHub</a></summary>
+
 Create Release on GitHub
 ------------------------
 
@@ -7,3 +12,7 @@ Create Release on GitHub
 - Choose release name (i.e. |projectRepo|-X.Y, |projectRepo|-X.Y-betaZ or |projectRepo|-X.Y.Z)
 - Add release notes from User's Guide to notes section
 - (Skip unless PDF of User's Guide is ready) Attach User's Guide PDF
+
+.. raw:: html
+
+   </details>

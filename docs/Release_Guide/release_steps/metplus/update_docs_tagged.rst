@@ -1,3 +1,8 @@
+.. raw:: html
+
+   <details>
+   <summary><a>Update the Documentation on the Web</a></summary>
+
 Update the Documentation on the Web
 -----------------------------------
 
@@ -15,3 +20,7 @@ Update the Documentation on the Web
 - Commit changes and push to GitHub
 - Verify that documentation appears in the pull-down and latest points to the
   new version on the web: dtcenter.github.io/METplus
+
+.. raw:: html
+
+   </details>
